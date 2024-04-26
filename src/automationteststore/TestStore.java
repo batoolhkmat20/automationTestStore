@@ -106,6 +106,8 @@ String aual=aa.getText();
 String apeted="MY ACCOUNT";
 Assert.assertEquals(aual, apeted);
 }
+	
+	
 	@Test(enabled = false)
 	public void addallitems() throws InterruptedException {
 		driver.get("https://automationteststore.com/index.php?rt=product/category&path=58");
@@ -180,7 +182,7 @@ public void  haircaresection() {
 }
 	
 
-@Test()
+@Test(enabled = false)
 public void  sumoftheprices()
 {driver.get("https://automationteststore.com/index.php?rt=product/category&path=52_54");
 List<WebElement> allelet=driver.findElements(By.className("list-inline"));
@@ -196,6 +198,41 @@ for (int i=0;i<pri.size();i++) {
 
 
 }
+
+@Test(enabled = false)
+public void sumOfProduct()
+
+{driver.get("https://automationteststore.com/index.php?rt=product/special");
+WebElement contenar=driver.findElement(By.className("contentpanel"));
+WebElement Priceelement=driver.findElement(By.className("pricenew"));
+List<WebElement> priceElements = driver.findElements(By.className("pricenew"));
+double sum = 0;
+String itemprice;
+for (int i=0;i<priceElements.size();i++) {
+	itemprice = priceElements.get(i).getText();
+	double theitempriceasdouble = Double.parseDouble(itemprice.replace("$", ""));//to conver string to double ans reblace $ to space
+	sum += theitempriceasdouble;
+     System.out.println("Total sum of prices in " + "spicial" + ": " + sum);
+
+	
+}
+
+}
+
+ @Test()
+ public void navigat () throws InterruptedException
+ {driver.get("https://automationteststore.com/index.php?rt=product/special");
+ String linkedInUrl = "https://www.linkedin.com";
+ driver.get(linkedInUrl);
+ driver.navigate().back();
+ Thread.sleep(3000);
+WebElement text=driver.findElement(By.className("breadcrumb"));
+String acual=text.getText();
+String axpexted="Home Special Offers";
+	 Assert.assertEquals(acual, axpexted);
+	
+ }
+
 		@AfterTest
 		public void enftest() {
 		}}}

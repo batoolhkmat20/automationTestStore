@@ -7,7 +7,7 @@
         <methods>
           <include name="sutup"/>
           <include name="enftest"/>
-          <include name="sumoftheprices"/>
+          <include name="navigat"/>
         </methods>
       </class> <!-- automationteststore.TestStore$TestArbi -->
     </classes>
